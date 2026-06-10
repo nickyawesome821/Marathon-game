@@ -68,8 +68,8 @@ function movePlayer(){
     distanceKm = min(distanceKm,totalD);
 }
   if(keyIsDown(LEFT_ARROW)) pX -= pSpeed;
-  pX = constrain(pX, pSize/2, W - pSize/2);
-pY = constrain(pY, pSize/2, H - pSize/2);
+ pX = constrain(pX, pSize/2, W - pSize/2);
+pY = constrain(pY, 70 + pSize/2, H - 70 - pSize/2);
   imageMode(CENTER);
   image(runnerImage,pX,pY,pSize,pSize);
 }
@@ -174,13 +174,13 @@ function resetLvl(){
     y: random(50,300)
   };
   obstacles = [];
-  for(let i=0;i<lvl+2;i++){
-    obstacles.push({
-      x:random(200,550),
-      y:random(50,350),
-      size:35
-    });
-  }
+ for(let i=0; i<lvl*3+2; i++){
+  obstacles.push({
+    x: random(200,550),
+    y: random(50,350),
+    size:35
+  });
+}
   runners = [];
   for(let i=0;i<lvl;i++){
     runners.push({
