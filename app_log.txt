@@ -1,13 +1,15 @@
 Marathon Race – Improvement Plan
 Priority Improvements
-1. Improve Visual Design
+Task 1. Improve Visual Design
 Replace generic falling circles with meaningful marathon-themed obstacles (water bottles, cones, runners, barriers, etc.).
 Add a more attractive background and better character sprites.
 Improve the overall appearance so the game feels less basic and more polished.
-2. Fix Gameplay Accuracy
+Done: 06/09/2026
+task 2. Fix Gameplay Accuracy
 Review collision detection and obstacle interactions.
 Adjust hitboxes so they better match the size of objects.
 Fix the oversized finish-line hitbox to make winning more accurate and fair.
+Done: 06/09/2026
 3. Add Singleplayer Mode
 Keep the multiplayer mode.
 Create a singleplayer option for players who want to race against AI runners or complete the course alone.
