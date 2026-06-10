@@ -49,7 +49,7 @@ background(150)
   drawButton(W/2 -90, 300, 180,50, "Start", color(30,100,226))
 }
 function gameScreen(){
-  background(240)
+  drawStreet()
   movePlayer()
   moveObstacles()
   moveRunners()
@@ -68,8 +68,8 @@ function movePlayer(){
     distanceKm = min(distanceKm,totalD);
 }
   if(keyIsDown(LEFT_ARROW)) pX -= pSpeed;
-  pX = constrain(pX,0,W);
-  pY = constrain(pY,0,H);
+  pX = constrain(pX, pSize/2, W - pSize/2);
+pY = constrain(pY, pSize/2, H - pSize/2);
   imageMode(CENTER);
   image(runnerImage,pX,pY,pSize,pSize);
 }
@@ -100,12 +100,35 @@ function moveRunners(){
     }
   }
 }
+function drawStreet(){
+  background(80,180,80);
+
+  // road
+  fill(90);
+  rect(0,50,W,H-100);
+
+  // side lines
+  stroke(255);
+  strokeWeight(3);
+  line(0,70,W,70);
+  line(0,H-70,W,H-70);
+
+  // center dashed line
+  stroke(255,255,0);
+  for(let x=0;x<W;x+=50){
+    line(x,H/2,x+25,H/2);
+  }
+
+  noStroke();
+}
 function drawFinishLine(){
   fill(100,100,40);
-  rect(finishline.x,finishline.y,20,240);
-  if(pX+pY/2>finishline.x){
-    lvl++
-    if(lvl>3){
+  rect(finishline.x, finishline.y, 20, 240);
+
+  if (pX + pSize/2 >= finishline.x){
+    lvl++;
+
+    if(lvl > 3){
       endGame(true);
     }
     else{
@@ -236,6 +259,12 @@ function checkClick(bx,by,bw,bh){
 }
 
 function endGame(won){
-  if(won) state='win';
-  else state="lose";
+  finalT = floor((millis() - startT) / 1000);
+
+  if(won){
+    state = 'win';
+  }
+  else{
+    state = 'lose';
+  }
 }
