@@ -8,7 +8,7 @@ var state='start'
 let runnerImage
 let coneImage
 var pSize=40
-var pSpeed=5
+var pSpeed=3
 let pX=50
 let pY=H/2
 var obstacles=[]
@@ -122,10 +122,18 @@ function drawStreet(){
   noStroke();
 }
 function drawFinishLine(){
-  fill(100,100,40);
-  rect(finishline.x, finishline.y, 20, 240);
+  // finish line across the road
+  fill(255);
+  rect(W-20, 70, 20, H-140);
 
-  if (pX + pSize/2 >= finishline.x){
+  // checkerboard pattern
+  fill(0);
+  for(let y = 70; y < H-70; y += 20){
+    rect(W-20, y, 10, 10);
+    rect(W-10, y+10, 10, 10);
+  }
+
+  if(pX + pSize/2 >= W-20){
     lvl++;
 
     if(lvl > 3){
@@ -202,14 +210,15 @@ function reset(){
 
 function winScreen(){
   background(200,255,200);
-  textFont('Times New Roman')
+  textFont('Times New Roman');
   textAlign(CENTER);
   textSize(40);
   text("You Finished!",W/2,140);
-  finalT = floor((millis()-startT)/1000);
+
   textSize(18);
-  text('Final Time: '+finalT+' seconds',W/2,210);
+  text('Final Time: ' + finalT + ' seconds',W/2,210);
   text("Distance: 42.195 km",W/2,240);
+
   drawButton(W/2-90,300,180,50,"Play Again",color(100,240,20));
 }
 
