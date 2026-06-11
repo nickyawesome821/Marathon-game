@@ -22,10 +22,11 @@ Make the game last longer to provide a more engaging experience.
 Stop the timer immediately when the game ends.
 Display the final completion time on the win screen.
 Add a restart option that properly resets the timer.
-6. Improve Overall Quality
+ task 6. Improve Overall Quality
 Add sound effects and background music.
 Create smoother animations for runners and obstacles.
 Balance obstacle difficulty to make the game challenging but fair.
+Done 06/11/2026
 Conduct more playtesting to identify bugs and improve gameplay.
 Goal for Next Week
 Implement these improvements to create a longer, more polished, visually appealing, and accurate marathon racing experience while offering both singleplayer and multiplayer gameplay.
